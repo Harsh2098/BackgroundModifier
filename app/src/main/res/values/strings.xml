@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Background Modifier</string>
+    <string name="redTVPlaceholder">RR</string>
+    <string name="reset">RESET</string>
+    <string name="red">RED</string>
+    <string name="green">GREEN</string>
+    <string name="blue">BLUE</string>
+    <string name="blueTVPlaceholder">BB</string>
+    <string name="greenTVPlaceholder">GG</string>
 </resources>

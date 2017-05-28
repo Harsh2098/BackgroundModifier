@@ -1,6 +1,5 @@
 package com.hmproductions.backgroundmodifier;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView redTV, greenTV, blueTV;
-    Button redButton, greenButton, blueButton;
+    Button redButton, greenButton, blueButton, resetButton;
     int redValue, greenValue, blueValue;
 
     private static final String COLOR_TAG = "COLOR STATE";
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         redButton = (Button)findViewById(R.id.redButton);
         greenButton = (Button)findViewById(R.id.greenButton);
         blueButton = (Button)findViewById(R.id.blueButton);
+        resetButton = (Button)findViewById(R.id.resetButton);
 
         redTV = (TextView)findViewById(R.id.redTextView);
         greenTV = (TextView)findViewById(R.id.greenTextView);
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         RedButtonClickListener();
         GreenButtonClickListener();
         BlueButtonClickListener();
+        ResetButtonClickListener();
     }
 
     private void setupColorStates()
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Button Listeners
+    // Button Click Listeners
 
     private void RedButtonClickListener()
     {
@@ -123,6 +124,20 @@ public class MainActivity extends AppCompatActivity {
                 blueValue = value;
                 blueTV.setText(String.valueOf(value));
 
+                changeBackgroundColor();
+            }
+        });
+    }
+
+    private void ResetButtonClickListener()
+    {
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redValue = blueValue = greenValue = 0;
+                redTV.setText(String.valueOf(0));
+                greenTV.setText(String.valueOf(0));
+                blueTV.setText(String.valueOf(0));
                 changeBackgroundColor();
             }
         });
